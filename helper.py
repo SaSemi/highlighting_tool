@@ -1,4 +1,4 @@
-PUNCTUATION = [",", ".", ';', "!", "?", ":", '"', '„', ]
+PUNCTUATION = [",", ".", ';', "!", "?", ":", '"', '„', "“", "”"]
 
 INPUT_FILE = "input"
 OUTPUT_FILE = "output"
@@ -11,8 +11,10 @@ def check_punctuation(word_l, index):
     :param index: int
     :return: None when not punctuation, else punctuation as string
     """
-    if word_l[index] in PUNCTUATION:
-        return word_l[index]
+    removed = ""
+    while word_l[index] in PUNCTUATION:
+        removed += word_l.pop(index)
+    return (removed[::-1]) # needs to be reversed
 
 
 def remove_punctuation(word):

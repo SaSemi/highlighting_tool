@@ -67,7 +67,13 @@ def mark_middle(word, nb_to_mark):
     middle = int(len(word) / 2)
     first_p = word[:middle]
     second_p = word[middle:]
-    marked_word = (first_p[:-halved] + START_TAG + first_p[-halved:]) + (
+
+    if len(first_p) > 1:
+        first_p = first_p[:-halved] + START_TAG + first_p[-halved:]
+    else:
+        first_p = first_p[-halved:] + START_TAG
+
+    marked_word = first_p + (
             second_p[:nb_to_mark - halved] + END_TAG + second_p[nb_to_mark - halved:])
     return marked_word
 
@@ -90,7 +96,7 @@ if __name__ == '__main__':
     kind = input.ask_for_kind()
 
     # for debugging:
-    # string = input.ask_for_string()
+    # input_string = input.ask_for_string()
 
     print("Marking contents of input file...")
     input_string = helper.read_input_file()
