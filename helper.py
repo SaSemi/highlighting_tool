@@ -49,12 +49,12 @@ def compute_nb_of_bold_letters(word_len):
         return int(word_len * 0.4)
 
 
-def read_input_file():
+def read_file(filename):
     """
     Reads in contents of input file.
     :return: string
     """
-    with open(INPUT_FILE, mode="r", encoding="utf-8") as input_file:
+    with open(filename, mode="r", encoding="utf-8") as input_file:
         lines = input_file.readlines()
 
     string = ""
@@ -65,10 +65,11 @@ def read_input_file():
     return string
 
 
-def write_to_output_file(output):
+def write_to_file(filename, output):
     """
-    Writes output to output file.
+    Writes output to file.
+    :param filename: string
     :param output: string
     """
-    with open(OUTPUT_FILE, mode="w", encoding="utf-8") as output_file:
+    with open(filename, mode="w", encoding="utf-8") as output_file:
         output_file.write(output)

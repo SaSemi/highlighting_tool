@@ -1,5 +1,6 @@
 import input
 import helper
+import split_text
 
 START_TAG = "<b>"
 END_TAG = "</b>"
@@ -115,7 +116,10 @@ if __name__ == '__main__':
     # input_string = input.ask_for_string()
 
     print("Marking contents of input file...")
-    input_string = helper.read_input_file()
+    input_string = helper.read_file(helper.INPUT_FILE)
     output = process_text(kind, input_string)
-    helper.write_to_output_file(output)
+    helper.write_to_file(helper.OUTPUT_FILE, output)
     print("Highlighted text was written to output file.")
+
+    print("Printing splitted text:")
+    split_text.split_text()
