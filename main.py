@@ -14,7 +14,7 @@ def process_text(kind, text_input):
     """
     highlighted_text = ""
     for word in text_input.split():
-        highlighted_text += handle_word(kind, word)
+        highlighted_text += handle_word(kind, word) + " "
     return highlighted_text
 
 
@@ -25,6 +25,13 @@ def handle_word(kind, word):
     :param word: string (word that should be marked)
     :return: string (marked word)
     """
+    if (helper.remove_punctuation(word)).isnumeric():
+        return word
+    if word.__contains__("-"):
+        return handle_hyphen_word(kind, word, "-")
+    if word.__contains__("—"):
+        return handle_hyphen_word(kind, word, "—")
+
     chars = [x for x in word]
     beginning = helper.check_punctuation(chars, 0)
     end = helper.check_punctuation(chars, -1)
@@ -36,7 +43,16 @@ def handle_word(kind, word):
     if end is not None:
         marked_word += end
 
-    return marked_word + " "
+    return marked_word
+
+
+def handle_hyphen_word(kind, word, hyphen):
+    word_l = word.split(hyphen)
+    marked_word = ""
+    for w in word_l[:-1]:
+        marked_word += handle_word(kind, w) + hyphen
+    marked_word += handle_word(kind, word_l[-1])
+    return marked_word
 
 
 def add_tags(kind, word):
@@ -102,5 +118,4 @@ if __name__ == '__main__':
     input_string = helper.read_input_file()
     output = process_text(kind, input_string)
     helper.write_to_output_file(output)
-    #print(output)
     print("Highlighted text was written to output file.")

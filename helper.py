@@ -12,9 +12,15 @@ def check_punctuation(word_l, index):
     :return: None when not punctuation, else punctuation as string
     """
     removed = ""
-    while word_l[index] in PUNCTUATION:
-        removed += word_l.pop(index)
-    return (removed[::-1]) # needs to be reversed
+    if len(word_l) == 0:
+        return ""
+    try:
+        while word_l[index] in PUNCTUATION:
+            removed += word_l.pop(index)
+        return removed[::-1]  # needs to be reversed
+    except:
+        print("There might be an error while checking punctuation: ", word_l)
+        return str(word_l)
 
 
 def remove_punctuation(word):
