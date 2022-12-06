@@ -48,6 +48,13 @@ def handle_word(kind, word):
 
 
 def handle_hyphen_word(kind, word, hyphen):
+    """
+    Handles words connected with hyphen.
+    :param kind: int
+    :param word: string
+    :param hyphen: string (to deal with different kind of hyphens)
+    :return: string (marked word)
+    """
     word_l = word.split(hyphen)
     marked_word = ""
     for w in word_l[:-1]:
