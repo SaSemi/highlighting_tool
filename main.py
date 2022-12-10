@@ -129,4 +129,4 @@ if __name__ == '__main__':
     print("Highlighted text was written to output file.")
 
     print("Printing splitted text:")
-    split_text.split_text()
+    split_text.split_text(helper.OUTPUT_FILE)
