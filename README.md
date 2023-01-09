@@ -31,6 +31,12 @@ Texts can be converted into a list of their sentences:
 ```sh
 ['Hello World.', 'I am a text.', 'Just a simple text.']
 ```
+Or a string with a separator (fe. "|") separating the sentences:
+
+"Hello World. I am a text. Just a simple text." 
+```sh
+'Hello World. | I am a text. | Just a simple text.'
+```
 
 ### BBCode to HTML
 Texts marked with BBCode tags will be stripped from tags that do not indicate boldfont and boldfont markings will be turned into HTML tags.
