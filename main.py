@@ -128,5 +128,10 @@ if __name__ == '__main__':
     helper.write_to_file(helper.OUTPUT_FILE, output)
     print("Highlighted text was written to output file.")
 
-    print("Printing splitted text:")
-    split_text.split_text(helper.OUTPUT_FILE)
+    #print("Printing splitted text:")
+    #print(split_text.split_text(helper.OUTPUT_FILE))
+
+    #print("Printing joined text:")
+    #print(split_text.string_with_separator(helper.OUTPUT_FILE, "|"))
+
+    #helper.write_to_file(helper.OUTPUT_FILE, split_text.string_with_separator(helper.OUTPUT_FILE, "|"))
